@@ -1,10 +1,23 @@
 {% extends "base.html" %}
-{% block title %} Survey {% endblock %}
-{% block heading %} {{ title }} {% endblock %}
+{% block title %} Boggle {% endblock %}
+{% block heading %} Boggle Game {% endblock %}
 {% block body %}
-<h2>{{ instructions }}</h2>
-<form action="/setup_session" method="POST">
-    <button>Begin</button>
-</form>
+
+    <table id="board">
+        {% for row in game %}
+        <tr>
+            {% for ele in row %}
+            <td>{{ ele }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+
+    <div class="form-container">
+        <form>
+            <input type="text" placeholder="Your Guess">
+            <button>Submit</button>
+        </form>
+    </div>
 
 {% endblock %}
