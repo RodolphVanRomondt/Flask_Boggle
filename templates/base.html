@@ -17,9 +17,9 @@
     {% block body %}
     {% endblock %}
 
-    {% for category, msg in get_flashed_messages(with_categories=true) %}
-        <p class="{{ category }}">{{ msg }}</p>
-    {% endfor %}
+    <script src="https://unpkg.com/jquery"></script>
+    <script src="https://unpkg.com/axios/dist/axios.js"></script>
+    <script src="/static/app.js"></script>
 </body>
 
 </html>
