@@ -52,8 +52,6 @@ async function handleClick(e) {
         params: { input_guess }
     });
 
-    console.log(response);
-
     $(".input_guess").val("");
 
     text = response.data["result"]

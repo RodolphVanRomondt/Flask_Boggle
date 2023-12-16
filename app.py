@@ -1,6 +1,6 @@
 from boggle import Boggle
 from flask import Flask, request, render_template, redirect, flash, session, jsonify
-from flask_debugtoolbar import DebugToolbarExtension
+# from flask_debugtoolbar import DebugToolbarExtension
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "springboard"
@@ -13,6 +13,7 @@ set_words = set()
 
 @app.route("/")
 def home():
+    """ Show the homepage and initialize some session keys. """
 
     tries = session.get("num_try", 0) + 1
     session["num_try"] = tries
@@ -26,6 +27,7 @@ def home():
 
 @app.route("/guess")
 def guess():
+    """ the route to check for valid and duplicate words. """
 
     guess_word = request.args["input_guess"]
     result = boggle_game.check_valid_word(session["board"], guess_word)
@@ -39,6 +41,7 @@ def guess():
 
 @app.route("/score", methods=["POST"])
 def score_and_try():
+    """ a route to send and update some statistic about the game. """
 
     if request.json["total"] > session["high_score"]:
         session["high_score"] = request.json["total"]
