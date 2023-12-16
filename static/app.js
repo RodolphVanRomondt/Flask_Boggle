@@ -1,6 +1,6 @@
 let total = 0;
 let score = 0;;
-let countdown = 5;
+let countdown = 60;
 
 function hideForm() {
 
